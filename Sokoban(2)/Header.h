@@ -10,7 +10,8 @@ using namespace System::Data;
 using namespace System::Collections;
 
 
-#define SPEED_OF_PERK 30
+#define CONST_SPEED 30
+
 
 enum Direction {
 	UP,
@@ -32,3 +33,9 @@ public:
 
 	}
 };
+
+bool FileExists(const char* fileName)
+{
+	std::ifstream infile(fileName);
+	return infile.good();
+}

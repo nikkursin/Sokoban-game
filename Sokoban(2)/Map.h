@@ -25,15 +25,28 @@ public:
 	}
 
 	virtual void Draw(Graphics^ g) override {
-		Bitmap^ img = gcnew Bitmap("Textures/wall-elem2.png");
-		for (int i = 0; i < 20; i++) {
-			for (int j = 0; j < 20; j++) {
-				if (blocks[i][j]){
-					
-					g->DrawImage(img, j * 30, i * 30);
+		if (FileExists("Textures/wall-elem2.png")) {
+			Bitmap^ img = gcnew Bitmap("Textures/wall-elem2.png");
+			for (int i = 0; i < 20; i++) {
+				for (int j = 0; j < 20; j++) {
+					if (blocks[i][j]) {
+						g->DrawImage(img, j * 30, i * 30);
+					}
 				}
 			}
 		}
+		else {
+			//MessageBox::Show("Image files couldn`t found!");
+			SolidBrush^ rect = gcnew SolidBrush(Color::DimGray);
+			for (int i = 0; i < 20; i++) {
+				for (int j = 0; j < 20; j++) {
+					if (blocks[i][j]) {
+						g->FillRectangle(rect, j * 30 + 10, i * 30 + 10, 20, 20);
+					}
+				}
+			}
+		}
+		
 	}
 
 	bool get_elem(int a , int b) {

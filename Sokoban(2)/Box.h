@@ -53,12 +53,24 @@ public:
 		Pen^ pen = gcnew Pen(Color::DarkGray, 2);
 		for (int i = 0; i < amount; i++){
 			if (boxes[i].delivered) {
-				Bitmap^ img = gcnew Bitmap("Textures/box3.png");
-				g->DrawImage(img, boxes[i].x, boxes[i].y);
+				if (FileExists("Textures/box3.png")) {
+					Bitmap^ img = gcnew Bitmap("Textures/box3.png");
+					g->DrawImage(img, boxes[i].x, boxes[i].y);
+				}
+				else {
+					SolidBrush^ box_green = gcnew SolidBrush(Color::SlateGray);
+					g->FillRectangle(box_green, boxes[i].x + 5, boxes[i].y + 5, 20, 20);
+				} 
 			}
 			else {
-				Bitmap^ img = gcnew Bitmap("Textures/box2.png");
-				g->DrawImage(img, boxes[i].x, boxes[i].y);
+				if (FileExists("Textures/box2.png")) {
+					Bitmap^ img = gcnew Bitmap("Textures/box2.png");
+					g->DrawImage(img, boxes[i].x, boxes[i].y);
+				}
+				else {
+					SolidBrush^ box_default = gcnew SolidBrush(Color::DimGray);
+					g->FillRectangle(box_default, boxes[i].x + 5, boxes[i].y + 5, 20, 20);
+				} 
 			}
 		}
 	}
@@ -80,22 +92,22 @@ public:
 		{
 		case UP:
 		{
-			boxes[i].y -= 30;
+			boxes[i].y -= CONST_SPEED;
 			break;
 		}
 		case DOWN:
 		{
-			boxes[i].y += 30;
+			boxes[i].y += CONST_SPEED;
 			break;
 		}
 		case RIGHT:
 		{
-			boxes[i].x += 30;
+			boxes[i].x += CONST_SPEED;
 			break;
 		}
 		case LEFT:
 		{
-			boxes[i].x -= 30;
+			boxes[i].x -= CONST_SPEED;
 			break;
 		}
 		default:
@@ -108,22 +120,22 @@ public:
 		{
 		case UP:
 		{
-			boxes[i].y += 30;
+			boxes[i].y += CONST_SPEED;
 			break;
 		}
 		case DOWN:
 		{
-			boxes[i].y -= 30;
+			boxes[i].y -= CONST_SPEED;
 			break;
 		}
 		case RIGHT:
 		{
-			boxes[i].x -= 30;
+			boxes[i].x -= CONST_SPEED;
 			break;
 		}
 		case LEFT:
 		{
-			boxes[i].x += 30;
+			boxes[i].x += CONST_SPEED;
 			break;
 		}
 		default:

@@ -19,7 +19,8 @@ public:
 				int temp; 
 				in >> temp; 
 				if (temp == 4) {
-					x = j * SPEED_OF_PERK; y = i * SPEED_OF_PERK;
+					x = j * 30;
+					y = i * 30;
 				}
 			}
 		}
@@ -27,8 +28,15 @@ public:
 	}
 
 	virtual void Draw(Graphics^ g) override {
-		Bitmap^ img = gcnew Bitmap("Textures/perk.png"); 
-		g->DrawImage(img, x, y);
+		if (FileExists("Textures/character.png")){
+			Bitmap^ img = gcnew Bitmap("Textures/character.png");
+			g->DrawImage(img, x, y);
+		}
+		else {
+			//MessageBox::Show("Character picture couldn`t found!");
+			SolidBrush^ character = gcnew SolidBrush(Color::DimGray);
+			g->FillEllipse(character, x + 10 , y + 5, 20, 20);
+		}
 	}
 
 	virtual void Run () override {
@@ -36,22 +44,22 @@ public:
 		{
 		case UP:
 		{
-			this->y -= SPEED_OF_PERK;
+			this->y -= CONST_SPEED;
 			break;
 		}
 		case DOWN:
 		{
-			this->y += SPEED_OF_PERK;
+			this->y += CONST_SPEED;
 			break;
 		}
 		case RIGHT:
 		{
-			this->x += SPEED_OF_PERK;
+			this->x += CONST_SPEED;
 			break;
 		}
 		case LEFT:
 		{
-			this->x -= SPEED_OF_PERK;
+			this->x -= CONST_SPEED;
 			break;
 		}
 		default:
@@ -64,22 +72,22 @@ public:
 		{
 		case UP:
 		{
-			this->y += SPEED_OF_PERK;
+			this->y += CONST_SPEED;
 			break;
 		}
 		case DOWN:
 		{
-			this->y -= SPEED_OF_PERK;
+			this->y -= CONST_SPEED;
 			break;
 		}
 		case RIGHT:
 		{
-			this->x -= SPEED_OF_PERK;
+			this->x -= CONST_SPEED;
 			break;
 		}
 		case LEFT:
 		{
-			this->x += SPEED_OF_PERK;
+			this->x += CONST_SPEED;
 			break;
 		}
 		default:
