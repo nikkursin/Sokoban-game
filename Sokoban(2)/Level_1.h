@@ -153,12 +153,24 @@ namespace Sokoban2 {
 	private: System::Void keyisdown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if (e->KeyCode == Keys::Up)	dir = UP; 
 		if (e->KeyCode == Keys::Down)dir = DOWN;
-		if (e->KeyCode == Keys::Left) dir = LEFT;
-		if (e->KeyCode == Keys::Right) dir = RIGHT;
+		if (e->KeyCode == Keys::Left) {
+			side_val = false; 
+			dir = LEFT;
+		} 
+		if (e->KeyCode == Keys::Right) {
+			side_val = true;
+			dir = RIGHT;
+		} 
 		if (e->KeyCode == Keys::W)	dir = UP;
 		if (e->KeyCode == Keys::S) dir = DOWN;
-		if (e->KeyCode == Keys::A) dir = LEFT;
-		if (e->KeyCode == Keys::D) dir = RIGHT;
+		if (e->KeyCode == Keys::A)	{
+			side_val = false;
+			dir = LEFT;
+		}
+		if (e->KeyCode == Keys::D) {
+			side_val = true;
+			dir = RIGHT;
+		}
 	}
 	private: System::Void keyisup(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if (e->KeyCode == Keys::Up) dir = zero;

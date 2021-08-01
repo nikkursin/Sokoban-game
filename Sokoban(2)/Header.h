@@ -20,7 +20,14 @@ enum Direction {
 	LEFT,
 	zero
 };
+//
+//ManagedGlobals::character_texture = ""; 
 
+//ManagedGlobals::character_texture = gcnew System::String("");
+
+std::string texture_img("Textures/character.png"); 
+
+bool side_val; 
 
 Direction dir; 
 

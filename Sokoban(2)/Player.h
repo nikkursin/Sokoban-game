@@ -10,6 +10,7 @@ private:
 public:
 	Player() {
 		dir = zero;
+		side_val = true; 
 		std::fstream in("Map_files/level1.bin");
 		if (!in.is_open()) {
 			MessageBox::Show("File could not opened!");
@@ -27,9 +28,18 @@ public:
 		in.close();
 	}
 
-	virtual void Draw(Graphics^ g) override {
-		if (FileExists("Textures/character.png")){
-			Bitmap^ img = gcnew Bitmap("Textures/character.png");
+	virtual void Draw(Graphics^ g) override {		
+		if (FileExists("Textures/character.png") && FileExists("Textures/character_reversed.png")){
+			//System::String^ temp = gcnew System::String(texture_img.c_str()); 
+			Bitmap^ img;
+			if (side_val) {
+				Bitmap^ tmp = gcnew Bitmap("Textures/character.png");
+				img = gcnew Bitmap(tmp, 30, 30);
+			}
+			else if (!side_val) {
+				Bitmap^ tmp = gcnew Bitmap("Textures/character_reversed.png");
+				img = gcnew Bitmap(tmp, 30, 30);
+			}	
 			g->DrawImage(img, x, y);
 		}
 		else {
