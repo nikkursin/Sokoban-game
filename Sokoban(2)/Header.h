@@ -10,6 +10,8 @@ using namespace System::Data;
 using namespace System::Collections;
 
 
+#define SPEED_OF_PERK 30
+
 enum Direction {
 	UP,
 	DOWN,

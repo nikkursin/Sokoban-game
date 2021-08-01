@@ -19,7 +19,7 @@ public:
 				int temp; 
 				in >> temp; 
 				if (temp == 4) {
-					x = j * 30 ; y = i * 30; 
+					x = j * SPEED_OF_PERK; y = i * SPEED_OF_PERK;
 				}
 			}
 		}
@@ -36,22 +36,22 @@ public:
 		{
 		case UP:
 		{
-			this->y -= 30; 
+			this->y -= SPEED_OF_PERK;
 			break;
 		}
 		case DOWN:
 		{
-			this->y += 30; 
+			this->y += SPEED_OF_PERK;
 			break;
 		}
 		case RIGHT:
 		{
-			this->x += 30; 
+			this->x += SPEED_OF_PERK;
 			break;
 		}
 		case LEFT:
 		{
-			this->x -= 30;
+			this->x -= SPEED_OF_PERK;
 			break;
 		}
 		default:
@@ -64,22 +64,22 @@ public:
 		{
 		case UP:
 		{
-			this->y += 30;
+			this->y += SPEED_OF_PERK;
 			break;
 		}
 		case DOWN:
 		{
-			this->y -= 30;
+			this->y -= SPEED_OF_PERK;
 			break;
 		}
 		case RIGHT:
 		{
-			this->x -= 30;
+			this->x -= SPEED_OF_PERK;
 			break;
 		}
 		case LEFT:
 		{
-			this->x += 30;
+			this->x += SPEED_OF_PERK;
 			break;
 		}
 		default:
