@@ -18,7 +18,7 @@ private:
 public:
 	Box() {
 		this->amount = 0; 
-		std::fstream in("level1.bin");
+		std::fstream in("Map_files/level1.bin");
 		if (!in.is_open()) {
 			MessageBox::Show("File could not opened!");
 		}
@@ -53,11 +53,11 @@ public:
 		Pen^ pen = gcnew Pen(Color::DarkGray, 2);
 		for (int i = 0; i < amount; i++){
 			if (boxes[i].delivered) {
-				Bitmap^ img = gcnew Bitmap("box3.png");
+				Bitmap^ img = gcnew Bitmap("Textures/box3.png");
 				g->DrawImage(img, boxes[i].x, boxes[i].y);
 			}
 			else {
-				Bitmap^ img = gcnew Bitmap("box2.png");
+				Bitmap^ img = gcnew Bitmap("Textures/box2.png");
 				g->DrawImage(img, boxes[i].x, boxes[i].y);
 			}
 		}

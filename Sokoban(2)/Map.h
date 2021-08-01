@@ -7,7 +7,7 @@ private:
 public:
 	Map() {
 		blocks = gcnew array<array< bool >^>(20);
-		std::fstream in("level1.bin");
+		std::fstream in("Map_files/level1.bin");
 		if (!in.is_open()) {
 			MessageBox::Show("File could not opened!");
 		}
@@ -25,7 +25,7 @@ public:
 	}
 
 	virtual void Draw(Graphics^ g) override {
-		Bitmap^ img = gcnew Bitmap("wall-elem2.png");
+		Bitmap^ img = gcnew Bitmap("Textures/wall-elem2.png");
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
 				if (blocks[i][j]){
@@ -52,7 +52,7 @@ private:
 public: 
 	Target() {
 		goals = gcnew array<array< bool >^>(20);
-		std::fstream in("level1.bin");
+		std::fstream in("Map_files/level1.bin");
 		if (!in.is_open()) {
 			MessageBox::Show("File could not opened!");
 		}

@@ -10,7 +10,7 @@ private:
 public:
 	Player() {
 		dir = zero;
-		std::fstream in("level1.bin");
+		std::fstream in("Map_files/level1.bin");
 		if (!in.is_open()) {
 			MessageBox::Show("File could not opened!");
 		}
@@ -27,7 +27,7 @@ public:
 	}
 
 	virtual void Draw(Graphics^ g) override {
-		Bitmap^ img = gcnew Bitmap("perk.png"); 
+		Bitmap^ img = gcnew Bitmap("Textures/perk.png"); 
 		g->DrawImage(img, x, y);
 	}
 
