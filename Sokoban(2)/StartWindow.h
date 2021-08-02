@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Header.h"
+
 namespace Sokoban2 {
 
 	using namespace System;
@@ -29,6 +31,7 @@ namespace Sokoban2 {
 		/// </summary>
 		~StartWindow()
 		{
+			//MessageBox::Show("EXIT FROM APP!");
 			if (components)
 			{
 				delete components;
@@ -113,13 +116,15 @@ namespace Sokoban2 {
 			this->Name = L"StartWindow";
 			this->Text = L"Sokoban";
 			this->Load += gcnew System::EventHandler(this, &StartWindow::StartWindow_Load);
+			this->Move += gcnew System::EventHandler(this, &StartWindow::StartWindow_Move);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void StartWindow_Load(System::Object^ sender, System::EventArgs^ e) {
-		//cur_pos_X = this->
+		cur_pos_X = this->Left; 
+		cur_pos_Y = this->Top; 
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Hide();
@@ -128,6 +133,10 @@ namespace Sokoban2 {
 	}
 	private: System::Void cross_pictureBox_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
+	}
+	private: System::Void StartWindow_Move(System::Object^ sender, System::EventArgs^ e) {
+		cur_pos_X = this->Left;
+		cur_pos_Y = this->Top;
 	}
 };
 }

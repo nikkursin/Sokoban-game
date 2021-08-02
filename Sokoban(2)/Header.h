@@ -1,8 +1,11 @@
 #pragma once
 
 #pragma once
+
 #include <Windows.h>
 #include <fstream>
+#include <string>
+
 
 using namespace System::Windows::Forms;
 using namespace System::Drawing;
@@ -23,11 +26,11 @@ enum Direction {
 int cur_pos_X; 
 int cur_pos_Y;
 
-std::string texture_img("Textures/character.png"); 
-
 bool side_val; 
 
 Direction dir; 
+
+int current_level;
 
 public ref class Elem abstract {
 public:
@@ -37,10 +40,13 @@ public:
 	virtual void Run() {
 
 	}
+
+	bool FileExists(const char* fileName)
+	{
+		std::ifstream infile(fileName);
+		return infile.good();
+	}
 };
 
-bool FileExists(const char* fileName)
-{
-	std::ifstream infile(fileName);
-	return infile.good();
-}
+
+

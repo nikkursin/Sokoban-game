@@ -2,6 +2,8 @@
 
 #include "Field.h"
 
+#include "Header.h"
+
 namespace Sokoban2 {
 
 	using namespace System;
@@ -19,11 +21,18 @@ namespace Sokoban2 {
 	public ref class Level_1 : public System::Windows::Forms::Form
 	{
 	public:
-		Level_1(void)
+		Level_1()
 		{
+			std::fstream in("Map_files/current_level.bin");
+			if (!in.is_open()) {
+				MessageBox::Show("File could not opened!");
+				Application::Exit();
+			}
+			in >> current_level; 
 			InitializeComponent();
 			game = gcnew Field(pictureBox1); 
 			Reset();
+			in.close(); 
 		}
 
 	protected:
@@ -32,10 +41,17 @@ namespace Sokoban2 {
 		/// </summary>
 		~Level_1()
 		{
+			std::ofstream out("Map_files/current_level.bin");
+			if (!out.is_open()) {
+				MessageBox::Show("File could not opened!");
+			}
+
+			out << current_level;
 			if (components)
 			{
 				delete components;
 			}
+			out.close(); 
 		}
 		private: System::Windows::Forms::PictureBox^ pictureBox1;
 		private: System::Windows::Forms::Timer^ mainTimer;
@@ -53,9 +69,7 @@ namespace Sokoban2 {
 		/// </summary>
 		Field^ game; 
 
-
-
-		   double Time = 0.0;
+		double Time = 0.0;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -98,7 +112,7 @@ namespace Sokoban2 {
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
 			this->pictureBox2->TabIndex = 1;
 			this->pictureBox2->TabStop = false;
-			this->pictureBox2->Click += gcnew System::EventHandler(this, &Level_1::pictureBox2_Click_1);
+			this->pictureBox2->Click += gcnew System::EventHandler(this, &Level_1::pictureBox2_Click);
 			// 
 			// label1
 			// 
@@ -130,6 +144,7 @@ namespace Sokoban2 {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::WindowsDefaultBounds;
 			this->Text = L"Sokoban";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &Level_1::Level_1_FormClosing);
+			this->Load += gcnew System::EventHandler(this, &Level_1::Level_1_Load_1);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Level_1::keyisdown);
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Level_1::keyisup);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -147,6 +162,7 @@ namespace Sokoban2 {
 		game->Draw(); 
 		game->Run(); 
 		if (game->winned()) {  
+			current_level++; 
 			mainTimer->Stop();
 			MessageBox::Show("\tYOU WON!\n\tTime: " + String::Format("{0:F2}", Time)); 
 			Application::Exit();
@@ -189,12 +205,12 @@ namespace Sokoban2 {
 		if (e->KeyCode == Keys::D) dir = zero;
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-		/*MessageBox::Show("RUN!"); 
-		Application::Run(gcnew Level_1()); */
-	}
-	private: System::Void pictureBox2_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		//MessageBox::Show("RESTART!");
 		game = gcnew Field(pictureBox1);
+		mainTimer->Stop();
+		Time = 0;
+		mainTimer->Start(); 
+	
 		//Application::Restart();
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -202,6 +218,10 @@ namespace Sokoban2 {
 	}
 	private: System::Void Level_1_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
 		Application::Exit();
+	}
+	private: System::Void Level_1_Load_1(System::Object^ sender, System::EventArgs^ e) {
+		this->Left = cur_pos_X;
+		this->Top = cur_pos_Y;
 	}
 };
 }
