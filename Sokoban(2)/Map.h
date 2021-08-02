@@ -7,7 +7,7 @@ private:
 public:
 	Map() {
 		blocks = gcnew array<array< bool >^>(20);
-		std::fstream in("Map_files/level1.bin");
+		std::fstream in("Map_files/level" + std::to_string(current_level) + ".bin");
 		if (!in.is_open()) {
 			MessageBox::Show("File could not opened!");
 		}
@@ -48,7 +48,6 @@ public:
 		}
 		
 	}
-
 	bool get_elem(int a , int b) {
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
@@ -65,7 +64,7 @@ private:
 public: 
 	Target() {
 		goals = gcnew array<array< bool >^>(20);
-		std::fstream in("Map_files/level1.bin");
+		std::fstream in("Map_files/level" + std::to_string(current_level) + ".bin");
 		if (!in.is_open()) {
 			MessageBox::Show("File could not opened!");
 		}
@@ -101,4 +100,5 @@ public:
 		}
 		return false;
 	}
+	
 };

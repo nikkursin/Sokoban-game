@@ -18,7 +18,7 @@ private:
 public:
 	Box() {
 		this->amount = 0; 
-		std::fstream in("Map_files/level1.bin");
+		std::fstream in("Map_files/level" + std::to_string(current_level) + ".bin");
 		if (!in.is_open()) {
 			MessageBox::Show("File could not opened!");
 		}

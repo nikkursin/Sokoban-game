@@ -1,8 +1,10 @@
 #pragma once
 
-#pragma once
+
 #include <Windows.h>
 #include <fstream>
+#include <string>
+
 
 using namespace System::Windows::Forms;
 using namespace System::Drawing;
@@ -12,7 +14,6 @@ using namespace System::Collections;
 
 #define CONST_SPEED 30
 
-
 enum Direction {
 	UP,
 	DOWN,
@@ -20,16 +21,17 @@ enum Direction {
 	LEFT,
 	zero
 };
-//
-//ManagedGlobals::character_texture = ""; 
 
-//ManagedGlobals::character_texture = gcnew System::String("");
-
-std::string texture_img("Textures/character.png"); 
+int cur_pos_X; 
+int cur_pos_Y;
 
 bool side_val; 
 
 Direction dir; 
+
+int current_level;
+
+int tmp;
 
 public ref class Elem abstract {
 public:
@@ -39,10 +41,13 @@ public:
 	virtual void Run() {
 
 	}
+
+	bool FileExists(const char* fileName)
+	{
+		std::ifstream infile(fileName);
+		return infile.good();
+	}
 };
 
-bool FileExists(const char* fileName)
-{
-	std::ifstream infile(fileName);
-	return infile.good();
-}
+
+
