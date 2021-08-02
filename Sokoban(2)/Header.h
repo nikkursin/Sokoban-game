@@ -1,6 +1,5 @@
 #pragma once
 
-#pragma once
 
 #include <Windows.h>
 #include <fstream>
@@ -31,6 +30,8 @@ bool side_val;
 Direction dir; 
 
 int current_level;
+
+int tmp;
 
 public ref class Elem abstract {
 public:

@@ -1,5 +1,3 @@
-5 - amount of levels ( variable )
-
 1 - wall block
 2 - box block
 3 - target

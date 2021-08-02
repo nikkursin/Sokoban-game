@@ -1,3 +1,4 @@
+#include "FormWin.h"
 #include "Level_1.h"
 #include "StartWindow.h"
 

@@ -110,12 +110,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Level_1.cpp" />
     <ClCompile Include="StartWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />
     <ClInclude Include="Field.h" />
+    <ClInclude Include="FormWin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Header.h" />
     <ClInclude Include="Level_1.h">
       <FileType>CppForm</FileType>
@@ -127,6 +129,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormWin.resx">
+      <DependentUpon>FormWin.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Level_1.resx">
       <DependentUpon>Level_1.h</DependentUpon>
     </EmbeddedResource>
