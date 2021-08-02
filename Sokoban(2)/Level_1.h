@@ -120,7 +120,8 @@ namespace Sokoban2 {
 			this->Controls->Add(this->pictureBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->MinimumSize = System::Drawing::Size(661, 664);
+			this->MaximumSize = System::Drawing::Size(661, 703);
+			this->MinimumSize = System::Drawing::Size(661, 703);
 			this->Name = L"Level_1";
 			this->ShowIcon = false;
 			this->Text = L"Sokoban";
@@ -183,10 +184,12 @@ namespace Sokoban2 {
 		if (e->KeyCode == Keys::D) dir = zero;
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show("RUN!"); 
 		Application::Run(gcnew Level_1()); 
 	}
-private: System::Void pictureBox2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	Application::Restart();
-}
+	private: System::Void pictureBox2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show("RESTART!");
+		Application::Restart();
+	}
 };
 }

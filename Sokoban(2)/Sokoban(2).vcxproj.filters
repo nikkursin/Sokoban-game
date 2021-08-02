@@ -18,6 +18,9 @@
     <ClCompile Include="Level_1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StartWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Level_1.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StartWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
