@@ -117,7 +117,7 @@ namespace Sokoban2 {
 		}
 #pragma endregion
 	private: System::Void StartWindow_Load(System::Object^ sender, System::EventArgs^ e) {
-		//MessageBox::Show("Hi bitch!");
+		//cur_pos_X = this->
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Hide();

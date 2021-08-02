@@ -54,6 +54,7 @@ namespace Sokoban2 {
 		Field^ game; 
 
 
+
 		   double Time = 0.0;
 
 #pragma region Windows Form Designer generated code
@@ -75,7 +76,7 @@ namespace Sokoban2 {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(32, 55);
+			this->pictureBox1->Location = System::Drawing::Point(26, 55);
 			this->pictureBox1->MaximumSize = System::Drawing::Size(600, 600);
 			this->pictureBox1->MinimumSize = System::Drawing::Size(600, 600);
 			this->pictureBox1->Name = L"pictureBox1";
@@ -114,6 +115,7 @@ namespace Sokoban2 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutoValidate = System::Windows::Forms::AutoValidate::EnablePreventFocusChange;
 			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(645, 694);
 			this->Controls->Add(this->label1);
@@ -121,13 +123,11 @@ namespace Sokoban2 {
 			this->Controls->Add(this->pictureBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Location = System::Drawing::Point(125, 545);
 			this->MaximumSize = System::Drawing::Size(661, 733);
 			this->MinimumSize = System::Drawing::Size(661, 733);
 			this->Name = L"Level_1";
 			this->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->ShowIcon = false;
-			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::WindowsDefaultBounds;
 			this->Text = L"Sokoban";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &Level_1::Level_1_FormClosing);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Level_1::keyisdown);
@@ -189,12 +189,13 @@ namespace Sokoban2 {
 		if (e->KeyCode == Keys::D) dir = zero;
 	}
 	private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
-		MessageBox::Show("RUN!"); 
-		Application::Run(gcnew Level_1()); 
+		/*MessageBox::Show("RUN!"); 
+		Application::Run(gcnew Level_1()); */
 	}
 	private: System::Void pictureBox2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-		MessageBox::Show("RESTART!");
-		Application::Restart();
+		//MessageBox::Show("RESTART!");
+		game = gcnew Field(pictureBox1);
+		//Application::Restart();
 	}
 	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();

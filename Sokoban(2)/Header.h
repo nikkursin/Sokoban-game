@@ -20,6 +20,9 @@ enum Direction {
 	zero
 };
 
+int cur_pos_X; 
+int cur_pos_Y;
+
 std::string texture_img("Textures/character.png"); 
 
 bool side_val; 
