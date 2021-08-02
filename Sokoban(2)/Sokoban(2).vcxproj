@@ -110,22 +110,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Level_1.cpp" />
+    <ClCompile Include="StartWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />
     <ClInclude Include="Field.h" />
+    <ClInclude Include="FormWin.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Header.h" />
     <ClInclude Include="Level_1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="StartWindow.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormWin.resx">
+      <DependentUpon>FormWin.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Level_1.resx">
       <DependentUpon>Level_1.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StartWindow.resx">
+      <DependentUpon>StartWindow.h</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\box2.png" />
+    <Image Include="Textures\box3.png" />
+    <Image Include="Textures\character.png" />
+    <Image Include="Textures\character_reversed.png" />
+    <Image Include="Textures\cross_icon.jpg" />
+    <Image Include="Textures\reset.png" />
+    <Image Include="Textures\wall-elem2.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
