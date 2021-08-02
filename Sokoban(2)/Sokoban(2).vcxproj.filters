@@ -45,4 +45,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\box2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Textures\box3.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Textures\character.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Textures\character_reversed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Textures\cross_icon.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Textures\reset.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Textures\wall-elem2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

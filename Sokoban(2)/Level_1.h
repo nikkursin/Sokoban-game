@@ -16,7 +16,6 @@ namespace Sokoban2 {
 	/// </summary>
 	
 
-
 	public ref class Level_1 : public System::Windows::Forms::Form
 	{
 	public:
@@ -38,11 +37,11 @@ namespace Sokoban2 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::Timer^ mainTimer;
-	private: System::ComponentModel::IContainer^ components;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
-	private: System::Windows::Forms::Label^ label1;
+		private: System::Windows::Forms::PictureBox^ pictureBox1;
+		private: System::Windows::Forms::Timer^ mainTimer;
+		private: System::ComponentModel::IContainer^ components;
+		private: System::Windows::Forms::PictureBox^ pictureBox2;
+		private: System::Windows::Forms::Label^ label1;
 
 
 
@@ -53,7 +52,9 @@ namespace Sokoban2 {
 		/// Required designer variable.
 		/// </summary>
 		Field^ game; 
-		double Time = 0.0;
+
+
+		   double Time = 0.0;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -74,7 +75,7 @@ namespace Sokoban2 {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(21, 52);
+			this->pictureBox1->Location = System::Drawing::Point(32, 55);
 			this->pictureBox1->MaximumSize = System::Drawing::Size(600, 600);
 			this->pictureBox1->MinimumSize = System::Drawing::Size(600, 600);
 			this->pictureBox1->Name = L"pictureBox1";
@@ -84,13 +85,13 @@ namespace Sokoban2 {
 			// 
 			// mainTimer
 			// 
-			this->mainTimer->Interval = 75;
+			this->mainTimer->Interval = 70;
 			this->mainTimer->Tick += gcnew System::EventHandler(this, &Level_1::mainGameTimer);
 			// 
 			// pictureBox2
 			// 
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(581, 6);
+			this->pictureBox2->Location = System::Drawing::Point(602, 9);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(40, 40);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
@@ -103,7 +104,7 @@ namespace Sokoban2 {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"SF UI Text", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(16, 17);
+			this->label1->Location = System::Drawing::Point(12, 9);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(112, 29);
 			this->label1->TabIndex = 2;
@@ -114,17 +115,21 @@ namespace Sokoban2 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
-			this->ClientSize = System::Drawing::Size(645, 664);
+			this->ClientSize = System::Drawing::Size(645, 694);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->pictureBox1);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->MaximumSize = System::Drawing::Size(661, 703);
-			this->MinimumSize = System::Drawing::Size(661, 703);
+			this->Location = System::Drawing::Point(125, 545);
+			this->MaximumSize = System::Drawing::Size(661, 733);
+			this->MinimumSize = System::Drawing::Size(661, 733);
 			this->Name = L"Level_1";
+			this->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->ShowIcon = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Sokoban";
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &Level_1::Level_1_FormClosing);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Level_1::keyisdown);
 			this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Level_1::keyisup);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
@@ -190,6 +195,12 @@ namespace Sokoban2 {
 	private: System::Void pictureBox2_Click_1(System::Object^ sender, System::EventArgs^ e) {
 		MessageBox::Show("RESTART!");
 		Application::Restart();
+	}
+	private: System::Void pictureBox3_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
+	private: System::Void Level_1_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e) {
+		Application::Exit();
 	}
 };
 }

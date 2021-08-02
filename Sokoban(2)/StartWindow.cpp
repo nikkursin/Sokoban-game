@@ -9,8 +9,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	Application::Run(gcnew StartWindow());
 
-	Application::Run(gcnew Level_1());
-
 	return 0;
 }
 

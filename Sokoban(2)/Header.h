@@ -12,7 +12,6 @@ using namespace System::Collections;
 
 #define CONST_SPEED 30
 
-
 enum Direction {
 	UP,
 	DOWN,
@@ -20,10 +19,6 @@ enum Direction {
 	LEFT,
 	zero
 };
-//
-//ManagedGlobals::character_texture = ""; 
-
-//ManagedGlobals::character_texture = gcnew System::String("");
 
 std::string texture_img("Textures/character.png"); 
 

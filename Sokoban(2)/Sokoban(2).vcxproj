@@ -134,6 +134,15 @@
       <DependentUpon>StartWindow.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Textures\box2.png" />
+    <Image Include="Textures\box3.png" />
+    <Image Include="Textures\character.png" />
+    <Image Include="Textures\character_reversed.png" />
+    <Image Include="Textures\cross_icon.jpg" />
+    <Image Include="Textures\reset.png" />
+    <Image Include="Textures\wall-elem2.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
