@@ -1,6 +1,6 @@
-#include "FormWin.h"
-#include "Level_1.h"
-#include "StartWindow.h"
+#include "Forms_headers/FormWin.h"
+#include "Forms_headers/Level_1.h"
+#include "Forms_headers/StartWindow.h"
 
 using namespace Sokoban2;
 
