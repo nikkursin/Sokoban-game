@@ -148,6 +148,9 @@ public:
 	}
 
 	void set_delivered(int i) {
+		System::Media::SoundPlayer^ f;
+		f = gcnew System::Media::SoundPlayer("Sounds/Pop-sound.wav");
+		f->Play();
 		boxes[i].delivered = true; 
 	}
 

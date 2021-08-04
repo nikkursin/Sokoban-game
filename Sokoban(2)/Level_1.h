@@ -4,7 +4,7 @@
 
 #include "Header.h"
 
-//#include "FormWin.h"
+
 
 namespace Sokoban2 {
 
@@ -183,6 +183,9 @@ namespace Sokoban2 {
 		game->Draw(); 
 		game->Run(); 
 		if (game->winned()) {
+			System::Media::SoundPlayer^ f;
+			f = gcnew System::Media::SoundPlayer("Sounds/Win.wav");
+			f->Play();
 			current_level++;
 			if (current_level > tmp) current_level = 1; 
 			mainTimer->Stop();

@@ -23,7 +23,6 @@ public:
 		}
 		in.close();
 	}
-
 	virtual void Draw(Graphics^ g) override {
 		if (FileExists("Textures/wall-elem2.png")) {
 			Bitmap^ img = gcnew Bitmap("Textures/wall-elem2.png");
